@@ -37,7 +37,7 @@ function show(req, res) {
 }
 
 function reviews(req, res) {
-    const movie_id = req.params.id
+    const movie_id = Number(req.params.id)
     console.log(req.body);
 
     const { name, vote, text } = req.body
