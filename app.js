@@ -5,6 +5,7 @@ const FilmsRouter = require('./routes/films.js')
 const NotFound = require('./middlewares/NotFound.js')
 const ServerErrorsHandler = require('./middlewares/ServerErrorsHandler.js')
 
+server.use(express.json())
 server.use(cors())
 
 const HOST = process.env.HOST

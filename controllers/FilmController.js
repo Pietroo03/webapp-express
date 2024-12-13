@@ -36,7 +36,12 @@ function show(req, res) {
     })
 }
 
+function review(req, res) {
+
+}
+
 module.exports = {
     index,
-    show
+    show,
+    review
 }
