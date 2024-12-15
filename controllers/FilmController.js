@@ -17,7 +17,7 @@ function show(req, res) {
 
     const id = req.params.id
     const sql = `SELECT * FROM movies WHERE id = ?`
-    const reviewsSql = `SELECT * FROM reviews WHERE movie_id = ?`
+    const reviewsSql = `SELECT * FROM reviews WHERE movie_id =? ORDER BY created_at DESC`
 
     connection.query(sql, [id], (err, results) => {
         if (err) return res.status(500).json({ error: err })
@@ -43,7 +43,6 @@ function reviews(req, res) {
     const { name, vote, text } = req.body
 
     const now = new Date()
-    //const reviewDate = `${now.getFullYear()}-${now.getMonth()}-${now.getDay()}`
 
     const sql = "INSERT INTO `reviews` SET name=?, vote=?, text=?, movie_id=?"
     connection.query(sql, [name, vote, text, movie_id], (err, results) => {
