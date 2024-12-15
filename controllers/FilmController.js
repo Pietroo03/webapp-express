@@ -43,10 +43,10 @@ function reviews(req, res) {
     const { name, vote, text } = req.body
 
     const now = new Date()
-    const reviewDate = `${now.getFullYear()}-${now.getMonth()}-${now.getDay()}`
+    //const reviewDate = `${now.getFullYear()}-${now.getMonth()}-${now.getDay()}`
 
-    const sql = "INSERT INTO `reviews` SET name=?, vote=?, text=?, movie_id=?, created_at=?"
-    connection.query(sql, [name, vote, text, movie_id, reviewDate], (err, results) => {
+    const sql = "INSERT INTO `reviews` SET name=?, vote=?, text=?, movie_id=?"
+    connection.query(sql, [name, vote, text, movie_id], (err, results) => {
         if (err) return res.status(500).json({ error: err })
         return res.status(201).json({ success: true, })
     })
