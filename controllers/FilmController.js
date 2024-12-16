@@ -17,7 +17,7 @@ function show(req, res) {
 
     const id = req.params.id
     const sql = `SELECT * FROM movies WHERE id = ?`
-    const reviewsSql = `SELECT * FROM reviews WHERE movie_id =? ORDER BY created_at DESC`
+    const reviewsSql = `SELECT * FROM reviews WHERE movie_id =? ORDER BY id DESC`
 
     connection.query(sql, [id], (err, results) => {
         if (err) return res.status(500).json({ error: err })
